@@ -1,7 +1,7 @@
 {
-  "name": "ex07",
+  "name": "ex06",
   "version": "1.0.0",
-  "description": "- **URL**: `GET http://localhost:3000/api/v1/users/2/orders?status=paid&limit=1`\r - **Kết quả trả về**:\r ```json\r {\r   \"success\": true,\r   \"data\": [\r     {\r       \"id\": 4,\r       \"userId\": 2,\r       \"status\": \"paid\",\r       \"total\": 120000\r     }\r   ],\r   \"meta\": {\r     \"total\": 2\r   }\r }\r ```\r *(Giải thích: User 2 có tổng cộng 2 đơn 'paid', nhưng do limit=1 nên data chỉ trả về 1 bản ghi).*",
+  "description": "- **Request**: `GET http://localhost:3000/api/books`\r - **Headers truyền lên**: `Api-Version: v1` (hoặc không truyền)\r - **Response Body**:\r ```json\r {\r   \"data\": [\r     {\r       \"id\": 1,\r       \"title\": \"Clean Code\",\r       \"author\": \"Robert C. Martin\"\r     },\r     {\r       \"id\": 2,\r       \"title\": \"The Pragmatic Programmer\",\r       \"author\": \"Andrew Hunt\"\r     }\r   ]\r }\r ```\r - **Response Headers (Ảnh chụp minh họa dạng text)**:\r ```text\r HTTP/1.1 200 OK\r X-Powered-By: Express\r Deprecation: true\r Sunset: Wed, 31 Dec 2025 23:59:59 GMT\r Content-Type: application/json; charset=utf-8\r Content-Length: 135\r ```",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -50,3 +50,10 @@
   "message": "Không tìm thấy người dùng này."
 }
 ```
+## 4. Tự động hoá Test với Postman
+
+- Đã tạo biến môi trường `base_url`.
+- File Collection và Environment đã được export và lưu tại thư mục `/postman` của repository.
+- **Báo cáo Collection Runner (100% PASS):**
+
+![alt text]({A29039E5-7FEB-4F35-BB8D-8AA03BF8F0CE}.png)

@@ -1,43 +1,38 @@
-// index.js
 const express = require("express");
-const booksData = require("./data/books");
-const versionResolver = require("./middlewares/versionResolver");
+const orders = require("./data/orders");
 
 const app = express();
 const PORT = 3000;
 
-app.use(versionResolver);
+const validUserIds = [1, 2, 3];
 
-app.get("/api/books", (req, res) => {
-  const version = req.apiVersion;
+app.get("/api/v1/users/:userId/orders", (req, res) => {
+  const userId = parseInt(req.params.userId, 10);
+  const { status, limit } = req.query;
 
-  if (version === "v1") {
-    res.setHeader("Deprecation", "true");
-    res.setHeader("Sunset", "Wed, 31 Dec 2025 23:59:59 GMT");
-
-    const formattedData = booksData.map((book) => ({
-      id: book.id,
-      title: book.title,
-      author: book.author.name,
-    }));
-
-    return res.json({ data: formattedData });
+  if (!validUserIds.includes(userId)) {
+    return res.status(404).json({
+      success: false,
+      code: "USER_NOT_FOUND",
+      message: "Không tìm thấy người dùng này.",
+    });
   }
 
-  if (version === "v2") {
-    const formattedData = booksData.map((book) => ({
-      id: book.id,
-      title: book.title,
-      author: book.author,
-      publishedYear: book.publishedYear,
-    }));
+  let userOrders = orders.filter((order) => order.userId === userId);
 
-    return res.json({ data: formattedData });
+  if (status) {
+    userOrders = userOrders.filter((order) => order.status === status);
   }
 
-  return res.status(400).json({
-    code: "UNSUPPORTED_API_VERSION",
-    message: `Phiên bản API '${version}' không được hỗ trợ.`,
+  const parsedLimit = limit ? parseInt(limit, 10) : 5;
+  const paginatedOrders = userOrders.slice(0, parsedLimit);
+
+  res.json({
+    success: true,
+    data: paginatedOrders,
+    meta: {
+      total: userOrders.length, 
+    },
   });
 });
 

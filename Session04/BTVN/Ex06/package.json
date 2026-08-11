@@ -1,7 +1,7 @@
 {
-  "name": "ex06",
+  "name": "ex05",
   "version": "1.0.0",
-  "description": "- **Request**: `GET http://localhost:3000/api/books`\r - **Headers truyền lên**: `Api-Version: v1` (hoặc không truyền)\r - **Response Body**:\r ```json\r {\r   \"data\": [\r     {\r       \"id\": 1,\r       \"title\": \"Clean Code\",\r       \"author\": \"Robert C. Martin\"\r     },\r     {\r       \"id\": 2,\r       \"title\": \"The Pragmatic Programmer\",\r       \"author\": \"Andrew Hunt\"\r     }\r   ]\r }\r ```\r - **Response Headers (Ảnh chụp minh họa dạng text)**:\r ```text\r HTTP/1.1 200 OK\r X-Powered-By: Express\r Deprecation: true\r Sunset: Wed, 31 Dec 2025 23:59:59 GMT\r Content-Type: application/json; charset=utf-8\r Content-Length: 135\r ```",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
