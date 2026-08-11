@@ -1,0 +1,16 @@
+{
+  "name": "ex09",
+  "version": "1.0.0",
+  "description": "- **URL**: `GET http://localhost:3000/api/v1/users/2/orders?status=paid&limit=1`\r - **Kết quả trả về**:\r ```json\r {\r   \"success\": true,\r   \"data\": [\r     {\r       \"id\": 4,\r       \"userId\": 2,\r       \"status\": \"paid\",\r       \"total\": 120000\r     }\r   ],\r   \"meta\": {\r     \"total\": 2\r   }\r }\r ```\r *(Giải thích: User 2 có tổng cộng 2 đơn 'paid', nhưng do limit=1 nên data chỉ trả về 1 bản ghi).*",
+  "main": "index.js",
+  "scripts": {
+    "test:api": "newman run postman/collection.json -e postman/env.json --reporters cli,htmlextra --reporter-htmlextra-export reports/report.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
